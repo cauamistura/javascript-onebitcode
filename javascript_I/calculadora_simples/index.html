@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc</title>
+</head>
+<body>
+    <label for="number_1">Number 1:</label>
+    <input type="number" id="number_1">
+    <br>
+    <label for="number_2">Number 2:</label>
+    <input type="number" id="number_2">
+    <br>
+    <label for="operator">Operator:</label>
+    <button onclick="setOperator('+')">+</button>
+    <button onclick="setOperator('-')">-</button>
+    <button onclick="setOperator('*')">*</button>
+    <button onclick="setOperator('/')">/</button>
+    <br>
+
+    <p id="result"></p>
+
+    <script>
+        let operator = '';
+
+        function setOperator(op) {
+            operator = op;
+            calc();
+        }
+
+        function sum(n1, n2) {
+            return parseFloat(n1) + parseFloat(n2);
+        }
+        
+        function sub(n1, n2) {
+            return parseFloat(n1) - parseFloat(n2);
+        }
+        
+        function mult(n1, n2) {
+            return parseFloat(n1) * parseFloat(n2);
+        }
+        
+        function div(n1, n2) {
+            return parseFloat(n1) / parseFloat(n2);
+        }
+
+        function calc() {
+            let n1 = document.getElementById("number_1").value;
+            let n2 = document.getElementById("number_2").value;
+            let result = document.getElementById("result");
+
+            switch(operator) {
+                case '+':
+                    result.innerHTML = sum(n1, n2);
+                    break;
+                case '-':
+                    result.innerHTML = sub(n1, n2);
+                    break;
+                case '*':
+                    result.innerHTML = mult(n1, n2);
+                    break;
+                case '/':
+                    result.innerHTML = div(n1, n2);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
